@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   form: any = {};
   hide = true;
   signUpForm: SignUpForm;
+  isCheckSuccess = false;
   error1: any = {
     message: "nouser"
   }
@@ -52,11 +53,14 @@ export class RegisterComponent implements OnInit {
         this.status = 'The email is existed! Please try again!'
       }
       if(JSON.stringify(data)==JSON.stringify(this.success)){
-        this.status = 'Create User account success!'
+        this.status = 'Create User account success -->'
+        this.isCheckSuccess = true;
         // this.isSuccess = 'Create User account success! Please Login!'
-        this.router.navigate(['login']);
-        this.isCheck = true;
+        // this.router.navigate(['login']);
+        // this.isCheck = true;
         // this.authService.setOption(this.isCheck);
+        this.authService.setData(true);
+        this.router.navigate(['login']);
       }
     })
   }

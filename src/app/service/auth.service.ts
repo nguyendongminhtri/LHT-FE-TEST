@@ -13,6 +13,7 @@ export class AuthService {
 //API_LOCAL
   private API_SIGNUP = environment.API_LOCAL+'signup';
   private API_SIGNIN = environment.API_LOCAL+'signin';
+  private API_CHANGE_PASSWORD = environment.API_LOCAL + 'change-password';
   //API SERVER
   // private API_SIGNIN = environment.API_SERVER+'signin';
 
@@ -23,14 +24,14 @@ export class AuthService {
   signIn (signIn: SignInForm): Observable<JwtResponse>{
     return this.http.post<JwtResponse>(this.API_SIGNIN, signIn);
   }
-   public data: boolean;
-
-  setOption(data: boolean) {
-    this.data = data;
-    console.log('data = ',data)
+  changePassword(info: any): Observable<JwtResponse>{
+      return this.http.put<JwtResponse>(this.API_CHANGE_PASSWORD, info);
   }
-
-  getOption() {
+ public data: boolean;
+  setData(data: boolean){
+    this.data = data;
+  }
+  getData(){
     return this.data;
   }
 }

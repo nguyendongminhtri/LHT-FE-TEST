@@ -6,6 +6,7 @@
 
                 <form class="form-login" #f="ngForm" (ngSubmit)="f.form.valid&&ngSubmit()" novalidate>
                     <mat-error *ngIf="isLogin" class="alert alert-danger">{{status}}</mat-error>
+                    <mat-error *ngIf="check" class="alert alert-primary">Create user account success!</mat-error>
                     <mat-form-field style="width: 350px" appearance="outline">
                         <mat-label>Username:</mat-label>
                         <input name="username" [(ngModel)]="form.username" #username="ngModel" required minlength="3" maxlength="50" matInput placeholder="Username ...">

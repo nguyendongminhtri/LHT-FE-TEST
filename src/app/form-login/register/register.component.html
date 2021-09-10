@@ -2,9 +2,12 @@
     <div class="row">
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px 0">
-                <p *ngIf="isCheck">Create Account Success</p>
-                <form *ngIf="!isCheck" class="form-register"(ngSubmit)="f.form.valid &&ngSubmit()" #f="ngForm" novalidate>
-                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                <form class="form-register"(ngSubmit)="f.form.valid &&ngSubmit()" #f="ngForm" novalidate>
+                    <mat-error class="alert alert-primary">{{status}}
+                        <button *ngIf="isCheckSuccess" routerLink="/login" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Login
+                            <mat-icon color="accent" matSuffix>login</mat-icon>
+                        </button>
+                    </mat-error>
                     <!-- NAME -->
                     <mat-form-field style="width: 350px" appearance="outline">
                         <mat-label>Name:</mat-label>
